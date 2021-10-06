@@ -6,13 +6,13 @@ const DUMMY_PRODUCTS = [
     id: 'p1',
     price: 7000,
     title: 'Study/Work Table',
-    description: 'Solid Engineered wood oak table',
+    description: 'Solid engineered wood table',
   },
   {
     id: 'p2',
     price: 4000,
     title: 'Office Chair',
-    description: 'Comfirtable Lean back chair with wheels',
+    description: 'Comfirtable lean back chair',
   },
 ];
 
