@@ -7,7 +7,7 @@ import Products from './components/Shop/Products';
 import Notification from './components/UI/Notification';
 import { sendCartData, fetchCartData } from './store/cart-actions';
 
-//let isInitial = true;
+let isInitial = true;
 
 function App() {
   const dispatch = useDispatch();
@@ -21,11 +21,11 @@ function App() {
 
   //lean components approach with thunks
   useEffect(() => {
-   /*  if (isInitial) {
+    if (isInitial) {
       isInitial = false;
       return;
     }//dont need this bcoz of cart.changed property
-  */
+  
     if (cart.changed) {
       dispatch(sendCartData(cart));
     }
