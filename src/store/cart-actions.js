@@ -52,7 +52,10 @@ export const sendCartData = (cart) => {
         "https://rtk-cart-default-rtdb.asia-southeast1.firebasedatabase.app/cart.json",
         {
           method: "PUT",
-          body: JSON.stringify(cart),
+          body: JSON.stringify({//to avoid changed property get added in firebase
+            items: cart.items,
+            totalQuantity: cart.totalQuantity,
+          }),
         }
       );
 
@@ -76,38 +79,38 @@ export const sendCartData = (cart) => {
       );
     }
 
-    /*     const sendRequest = async () => {
-        const response = await fetch(
-          'https://react-http-6b4a6.firebaseio.com/cart.json',
-          {
-            method: 'PUT',
-            body: JSON.stringify(cart),
-          }
-        );
-  
-        if (!response.ok) {
-          throw new Error('Sending cart data failed.');
+    /* const sendRequest = async () => {
+      const response = await fetch(
+        "https://rtk-cart-default-rtdb.asia-southeast1.firebasedatabase.app/cart.json",
+        {
+          method: "PUT",
+          body: JSON.stringify(cart),
         }
-      };
-  
-      try {
-        await sendRequest();
-  
-        dispatch(
-          uiActions.showNotification({
-            status: 'success',
-            title: 'Success!',
-            message: 'Sent cart data successfully!',
-          })
-        );
-      } catch (error) {
-        dispatch(
-          uiActions.showNotification({
-            status: 'error',
-            title: 'Error!',
-            message: 'Sending cart data failed!',
-          })
-        );
-      } */
+      );
+
+      if (!response.ok) {
+        throw new Error("Sending cart data failed.");
+      }
+    };
+
+    try {
+      await sendRequest();
+
+      dispatch(
+        uiActions.showNotification({
+          status: "success",
+          title: "Success!",
+          message: "Sent cart data successfully!",
+        })
+      );
+    } catch (error) {
+      dispatch(
+        uiActions.showNotification({
+          status: "error",
+          title: "Error!",
+          message: "Sending cart data failed!",
+        })
+      );
+    }*/
   };
 };
