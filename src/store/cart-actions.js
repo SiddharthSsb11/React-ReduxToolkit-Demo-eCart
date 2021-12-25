@@ -21,7 +21,7 @@ export const fetchCartData = () => {
       const cartData = await fetchData();
       dispatch(
         cartActions.replaceCart({
-          items: cartData.items || [],
+          items: cartData.items || [],//if items are not there, so to avoid undefined on using any array method like find while data transformation inside reducers
           totalQuantity: cartData.totalQuantity,
         })
       );
@@ -52,7 +52,7 @@ export const sendCartData = (cart) => {
         "https://rtk-cart-default-rtdb.asia-southeast1.firebasedatabase.app/cart.json",
         {
           method: "PUT",
-          body: JSON.stringify({//to avoid changed property get added in firebase
+          body: JSON.stringify({//to avoid changed property get added in firebase while sending a put request
             items: cart.items,
             totalQuantity: cart.totalQuantity,
           }),

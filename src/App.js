@@ -26,7 +26,8 @@ function App() {
       return;
     }//dont need this bcoz of cart.changed property
   
-    if (cart.changed) {
+    if (cart.changed) {//after fetching cart the current app cart state changes and thus sends a put request again to store the the changed cart state
+      //to avoid this//changed prop intorduced
       dispatch(sendCartData(cart));
     }
 
